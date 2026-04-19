@@ -1,0 +1,6 @@
+wo dragables wahi jo dashboard hai usko achieve karne ke liye hum ek package install karte hai "npm i react-resizable-panels"
+
+jab apne pass songs aa rahe hai then usme common hai URL toh kaise bhi karke tumhe ye jo url hai usko Audio tag tak pouchana hai 
+toh mere ko pata hai agar mere ko ye URL player tak pouchana hai . currently hamari songs ki mapping homePage pe ho rahi hai and mere ko yaha se url nikal ke player ko dena hai so we know humare pass ek Global state Management hai jo ye sabko manage karti hai 
+
+saari cheeze player handle karne wala hai gaana bajana gana band karna 
