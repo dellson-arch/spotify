@@ -7,6 +7,7 @@ export let usePlayer = () => {
 
     //hume ek audio chahiye jisme gaana bajega isi ke andar ek dynamic Audio ref lenge jiske andar hum Audio tag ko as a class use karenge
    let audioRef = useRef(new Audio()) //toh ye kabhi bhi rerender pe naya instance nahi banayega 
+//    console.log(audioRef)
 
    let {currentPlayingSong, isPlaying} = useSelector((store)=>store.player)
 
