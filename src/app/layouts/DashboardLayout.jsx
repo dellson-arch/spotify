@@ -11,11 +11,11 @@ const DashboardLayout = () => {
       <NavBar/>
       <div className='h-[80%] '>
         <Group className='gap-2'>
-            <Panel maxSize={'20%'} minSize={'15%'} className='bg-[#121212] p-5'>Left side</Panel>
-            <Panel className='bg-[#121212] p-5'>
+            <Panel maxSize={'20%'} minSize={'15%'} className='bg-[#121212] p-5 overflow-y-auto no-scrollbar'>Left side</Panel>
+            <Panel className='bg-[#121212] p-5 overflow-y-auto no-scrollbar'>
                 <Outlet/>
             </Panel>
-            <Panel maxSize={'20%'} minSize={'15%'} className='bg-[#121212] p-5'>right side</Panel>
+            {/* <Panel maxSize={'20%'} minSize={'15%'} className='bg-[#121212] p-5'>right side</Panel> */}
         </Group>
       </div>
       <Player/>

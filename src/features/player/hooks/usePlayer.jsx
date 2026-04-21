@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { nextSong, pause, play, prevSong } from "../state/PlayerSlice";
 
@@ -7,9 +7,28 @@ export let usePlayer = () => {
 
   //hume ek audio chahiye jisme gaana bajega isi ke andar ek dynamic Audio ref lenge jiske andar hum Audio tag ko as a class use karenge
   let audioRef = useRef(new Audio()); //toh ye kabhi bhi rerender pe naya instance nahi banayega
-  //    console.log(audioRef)
+    //  console.log(audioRef)
+
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   let { currentPlayingSong, isPlaying } = useSelector((store) => store.player);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+
+    // These functions sync the "Invisible" Audio keys to "Visible" React State
+    const updateTime = () => setCurrentTime(audio.currentTime);
+    const updateDuration = () => setDuration(audio.duration || 0);
+
+    audio.addEventListener("timeupdate", updateTime);
+    audio.addEventListener("loadedmetadata", updateDuration);
+
+    return () => {
+      audio.removeEventListener("timeupdate", updateTime);
+      audio.removeEventListener("loadedmetadata", updateDuration);
+    };
+  }, []);
 
   useEffect(() => {
     if (!currentPlayingSong) return;
@@ -27,6 +46,21 @@ export let usePlayer = () => {
       audioRef.current.pause();
     }
   }, [isPlaying]);
+ 
+  // UI Helpers
+  const formatTime = (timeInSeconds) => {
+    if (isNaN(timeInSeconds)) return "0:00";
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  }; 
+
+  const handleSeek = (e) => {
+    // e is the event from the input range
+    const newTime = (e.target.value / 100) * duration;
+    audioRef.current.currentTime = newTime;
+    setCurrentTime(newTime);
+  };
 
   let togglePlayAndPause = () => {
     if (isPlaying) {
@@ -43,6 +77,10 @@ export let usePlayer = () => {
     togglePlayAndPause,
     handleNextSong,
     handlePrevSong,
-    isPlaying
+    isPlaying,
+    handleSeek,
+    displayTime: formatTime(currentTime),
+    displayDuration: formatTime(duration),
+    progress: (currentTime / duration) * 100 || 0
   };
 };
