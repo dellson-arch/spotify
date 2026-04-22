@@ -11,9 +11,11 @@ const SearchInput = ({...props}) => { //isme pura ka pura ek object aayega and w
        className='w-full border-gray-600 border rounded py-3 px-3' 
        {...props} /> 
 
-       {searchValue ? (
+    {searchValue && (
+    <div className='fixed inset-0 top-[64px] left-[240px] bottom-[90px] bg-[#121212] z-40 overflow-y-auto no-scrollbar'>
         <SongsContainer song={SearchedSong}/>
-       ) : (null)}
+    </div>
+)}
     </div>
   )
 }
