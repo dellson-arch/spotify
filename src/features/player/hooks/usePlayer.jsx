@@ -2,11 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { nextSong, pause, play, prevSong } from "../state/PlayerSlice";
 
+const globalAudio = new Audio()
 export let usePlayer = () => {
   let dispatch = useDispatch();
 
   //hume ek audio chahiye jisme gaana bajega isi ke andar ek dynamic Audio ref lenge jiske andar hum Audio tag ko as a class use karenge
-  let audioRef = useRef(new Audio()); //toh ye kabhi bhi rerender pe naya instance nahi banayega
+  let audioRef = useRef(globalAudio); //toh ye kabhi bhi rerender pe naya instance nahi banayega
     //  console.log(audioRef)
 
   const [currentTime, setCurrentTime] = useState(0);

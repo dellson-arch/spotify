@@ -16,7 +16,7 @@ const Player = () => {
   } = usePlayer();
 
   return (
-    <div className="flex flex-col justify-center items-center h-[12%] bg-[#000000] border-t border-neutral-900 px-4 pl-90">
+<div className="fixed bottom-0 left-0 right-0 flex flex-col justify-center items-center h-[15%] bg-[#000000] border-t border-neutral-900 px-4 z-50">
       {/* 1. Control Buttons */}
       <div className="flex justify-center items-center gap-8 mb-2">
         <button
