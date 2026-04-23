@@ -9,4 +9,4 @@ export let store = configureStore({
     }
 })
 
-export let dispatch = store.dispatch //this is the solution jab you are not able to call dispatch under a hook 
+export let dispatch = store.dispatch //this is the solution jab you are not able to call dispatch under a hook
