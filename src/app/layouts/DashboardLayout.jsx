@@ -3,7 +3,7 @@ import React from 'react'
 import { Group, Panel } from 'react-resizable-panels'
 import { Outlet } from 'react-router'
 import NavBar from '../../features/dashboard/ui/components/NavBar'
-import Player from '../../features/player/ui/components/player'
+import Player from '../../features/player/ui/components/Player'
 
 const DashboardLayout = () => {
   return (
