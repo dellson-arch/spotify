@@ -80,6 +80,7 @@ export let usePlayer = () => {
     handlePrevSong,
     isPlaying,
     handleSeek,
+    currentPlayingSong,
     displayTime: formatTime(currentTime),
     displayDuration: formatTime(duration),
     progress: (currentTime / duration) * 100 || 0

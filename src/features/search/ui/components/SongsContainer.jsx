@@ -9,7 +9,7 @@ import { playNewSong } from "../../../player/state/PlayerSlice";
 import { usePlayer } from "../../../player/hooks/usePlayer";
 
 const SongsContainer = ({ song }) => {
-  let { isPlaying } = usePlayer();
+  let { isPlaying , togglePlayAndPause} = usePlayer();
   let dispatch = useDispatch();
 
   if (!song || song.length === 0) return null;
@@ -24,7 +24,7 @@ const SongsContainer = ({ song }) => {
           <div className="w-full lg:w-[400px]">
             <h2 className="text-2xl font-bold text-white mb-4">Top result</h2>
             <div 
-              onClick={() => dispatch(playNewSong(topResult))}
+              onClick={() => togglePlayAndPause()}
               className="bg-[#181818] hover:bg-[#282828] p-5 rounded-xl transition-all duration-300 group cursor-pointer relative shadow-lg border border-white/5"
             >
               <img 
