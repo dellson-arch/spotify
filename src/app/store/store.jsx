@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import playerReducer from '../../features/player/state/PlayerSlice'
 import errorReducer from '../../shared/state/errorSlice'
-
+import authReducer from '../../features/auth/state/authSlice'
 export let store = configureStore({
     reducer:{
         player : playerReducer,
-        error : errorReducer
+        error : errorReducer,
+        auth : authReducer
     }
 })
 
