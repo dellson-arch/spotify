@@ -23,6 +23,7 @@ const SearchInput = ({ ...props }) => {//isme pura ka pura ek object aayega and 
         />
       </div>
 
+
       {/* Results Overlay */}
       {searchValue && (
         <div className="fixed inset-0 top-[64px] left-[240px] bottom-[90px] bg-[#121212]/95 backdrop-blur-md z-40 overflow-y-auto custom-scrollbar p-6">
@@ -36,6 +37,13 @@ const SearchInput = ({ ...props }) => {//isme pura ka pura ek object aayega and 
           </div>
         </div>
       )}
+
+    {searchValue && (
+    <div className='fixed inset-0 top-[64px] left-[240px] bottom-[90px] bg-[#121212] z-40 overflow-y-auto no-scrollbar'>
+        <SongsContainer song={SearchedSong}/>
+    </div>
+)}
+
     </div>
   );
 };
