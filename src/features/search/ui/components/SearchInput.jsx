@@ -38,12 +38,6 @@ const SearchInput = ({ ...props }) => {//isme pura ka pura ek object aayega and 
         </div>
       )}
 
-    {searchValue && (
-    <div className='fixed inset-0 top-[64px] left-[240px] bottom-[90px] bg-[#121212] z-40 overflow-y-auto no-scrollbar'>
-        <SongsContainer song={SearchedSong}/>
-    </div>
-)}
-
     </div>
   );
 };
