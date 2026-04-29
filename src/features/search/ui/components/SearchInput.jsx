@@ -18,7 +18,6 @@ const SearchInput = ({ ...props }) => {//isme pura ka pura ek object aayega and 
           onChange={handleSearch}
           value={searchValue}
           className="w-full bg-[#242424] hover:bg-[#2a2a2a] border border-transparent focus:border-[#727272] focus:bg-[#2a2a2a] text-white rounded-full py-3 pl-12 pr-4 outline-none transition-all text-sm placeholder:text-zinc-500"
-          placeholder="What do you want to play?"
           {...props}
         />
       </div>
